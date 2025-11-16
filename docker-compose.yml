@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: admissions_mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: admissions_chatbot
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - admissions_network
+
+  # Elasticsearch (Optional - if not using Elastic Cloud)
+  # elasticsearch:
+  #   image: docker.elastic.co/elasticsearch/elasticsearch:8.11.1
+  #   container_name: admissions_elasticsearch
+  #   restart: unless-stopped
+  #   environment:
+  #     - discovery.type=single-node
+  #     - xpack.security.enabled=false
+  #     - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+  #   ports:
+  #     - "9200:9200"
+  #     - "9300:9300"
+  #   volumes:
+  #     - elasticsearch_data:/usr/share/elasticsearch/data
+  #   networks:
+  #     - admissions_network
+
+  # Redis (Optional - for caching)
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: admissions_redis
+  #   restart: unless-stopped
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis_data:/data
+  #   networks:
+  #     - admissions_network
+
+volumes:
+  mongodb_data:
+    driver: local
+  # elasticsearch_data:
+  #   driver: local
+  # redis_data:
+  #   driver: local
+
+networks:
+  admissions_network:
+    driver: bridge
+

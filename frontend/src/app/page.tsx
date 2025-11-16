@@ -1,0 +1,10 @@
+/**
+ * Home Page - Main Chat Interface
+ */
+
+import ChatInterface from '@/components/chat/ChatInterface'
+
+export default function Home() {
+  return <ChatInterface />
+}
+

@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  body {
+    @apply bg-white text-gray-900;
+  }
+
+  .dark * {
+    @apply border-gray-700;
+  }
+
+  .dark body {
+    @apply bg-gray-900 text-gray-100;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Markdown styles */
+.prose {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply text-gray-900 dark:text-white font-bold;
+}
+
+.prose a {
+  @apply text-primary-500 hover:text-primary-600 no-underline;
+}
+
+.prose code {
+  @apply bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm;
+}
+
+.prose pre {
+  @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0;
+}
+
+.prose ul,
+.prose ol {
+  @apply my-2;
+}
+
+.prose li {
+  @apply my-1;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-primary-500 pl-4 italic text-gray-600 dark:text-gray-400;
+}
+
+.prose table {
+  @apply w-full border-collapse;
+}
+
+.prose th,
+.prose td {
+  @apply border border-gray-300 dark:border-gray-700 px-4 py-2;
+}
+
+.prose th {
+  @apply bg-gray-100 dark:bg-gray-800 font-bold;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Loading dots */
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
