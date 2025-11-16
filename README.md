@@ -2,6 +2,9 @@
 
 AI-powered chatbot system for university admissions counseling using **LangGraph**, **LangChain**, **Elasticsearch**, and **React**.
 
+**Disclaimer:** This project was designed by a student and is for reference and learning purposes only.
+
+
 ## 📋 Features
 
 - ✅ Conversational AI using LangGraph workflow
