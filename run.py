@@ -213,11 +213,12 @@ Examples:
     
     # Print banner
     print()
-    print("╔" + "═"*78 + "╗")
-    print("║" + " "*20 + "ADMISSIONS COUNSELING CHATBOT API" + " "*25 + "║")
-    print("║" + " "*30 + "FastAPI Server" + " "*34 + "║")
-    print("╚" + "═"*78 + "╝")
+    print("=" * 80)
+    print(" " * 20 + "ADMISSIONS COUNSELING CHATBOT API" + " " * 27)
+    print(" " * 30 + "FastAPI Server" + " " * 36)
+    print("=" * 80)
     print()
+
     
     # Run server based on mode
     if mode == "dev" or mode == "development":

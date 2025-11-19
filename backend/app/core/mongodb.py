@@ -22,7 +22,10 @@ def get_mongodb_client() -> MongoClient:
     global _sync_client
     if _sync_client is None:
                 _sync_client = MongoClient(
-            settings.MONGODB_URL, serverSelectionTimeoutMS=5000
+            settings.MONGODB_URL,
+            serverSelectionTimeoutMS=5000,
+            connectTimeoutMS=5000,
+            socketTimeoutMS=5000
         )
     return _sync_client
 
@@ -32,7 +35,10 @@ def get_async_mongodb_client() -> AsyncIOMotorClient:
     global _async_client
     if _async_client is None:
         _async_client = AsyncIOMotorClient(
-            settings.MONGODB_URL, serverSelectionTimeoutMS=5000
+            settings.MONGODB_URL,
+            serverSelectionTimeoutMS=5000,
+            connectTimeoutMS=5000,
+            socketTimeoutMS=5000
         )
     return _async_client
 
